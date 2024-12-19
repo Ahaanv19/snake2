@@ -5,66 +5,74 @@ permalink: /snake/
 ---
 
 <style>
-
-    body{
+    body {
+        background-color: #282c34;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        text-align: center;
     }
-    .wrap{
+
+    .wrap {
         margin-left: auto;
         margin-right: auto;
+        max-width: 800px;
     }
 
-    canvas{
-        display: none;
+    canvas {
+        display: block;
+        margin: 20px auto;
         border-style: solid;
         border-width: 10px;
-        border-color: #FFFFFF;
+        border-color: #61dafb;
+        background-color: #000000;
+        animation: fadeIn 2s;
     }
-    canvas:focus{
+
+    canvas:focus {
         outline: none;
     }
 
-    /* All screens style */
-    #gameover p, #setting p, #menu p{
+    #gameover p, #setting p, #menu p {
         font-size: 20px;
+        margin: 10px 0;
+        animation: fadeIn 2s;
     }
 
-    #gameover a, #setting a, #menu a{
-        font-size: 30px;
-        display: block;
+    #gameover p {
+        color: #ff0000;
     }
 
-    #gameover a:hover, #setting a:hover, #menu a:hover{
+    #setting p, #menu p {
+        color: #61dafb;
+    }
+
+    button {
+        background-color: #61dafb;
+        border: none;
+        color: #282c34;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
         cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s, transform 0.3s;
     }
 
-    #gameover a:hover::before, #setting a:hover::before, #menu a:hover::before{
-        content: ">";
-        margin-right: 10px;
+    button:hover {
+        background-color: #21a1f1;
+        transform: scale(1.1);
     }
 
-    #menu{
-        display: block;
+    #score_value {
+        transition: color 0.3s;
     }
 
-    #gameover{
-        display: none;
-    }
-
-    #setting{
-        display: none;
-    }
-
-    #setting input{
-        display:none;
-    }
-
-    #setting label{
-        cursor: pointer;
-    }
-
-    #setting input:checked + label{
-        background-color: #FFF;
-        color: #000;
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 </style>
 
@@ -87,8 +95,7 @@ permalink: /snake/
             <a id="setting_menu1" class="link-alert">settings</a>
         </div>
         <!-- Play Screen -->
-        <canvas id="snake" class="wrap" width="320" height="320" tabindex="1"></canvas>
-        <!-- Settings Screen -->
+        <canvas id="snake" class="wrap" width="320" height="320" tabindex="1" style="border-radius: 10px;"></canvas>    <!-- Settings Screen -->
         <div id="setting" class="py-4 text-light">
             <p>Settings Screen, press <span style="background-color: #FFFFFF; color: #000000">space</span> to go back to playing</p>
             <a id="new_game2" class="link-alert">new game</a>
