@@ -288,10 +288,11 @@ permalink: /snake/
                 ctx.fillStyle = "#ffffff";
                 ctx.fillRect(food.x * BLOCK_SIZE, food.y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
 
-                ctx.fillStyle = "#00ff00";
-                snake.forEach((segment) =>
-                    ctx.fillRect(segment.x * BLOCK_SIZE, segment.y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE)
-                );
+                snake.forEach((segment, index) => {
+                    const colors = ["#ff0000", "#ffffff", "#00ff00"];
+                    ctx.fillStyle = colors[index % 3];
+                    ctx.fillRect(segment.x * BLOCK_SIZE, segment.y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+                });
             };
 
             // Event Listeners
