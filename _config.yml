@@ -2,8 +2,8 @@ title: Coding Journey
 description: "Class of 2025"
 owner_name: John Mortensen
 github_username: Ahaanv19 
-github_repo: "snake2" 
-baseurl: "/snake2"
+github_repo: "snaketwo" 
+baseurl: "/snaketwo"
 future: true
 remote_theme: jekyll/minima
 minima:
