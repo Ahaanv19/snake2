@@ -97,7 +97,7 @@ permalink: /snake/
             margin: 20px auto;
             border: 5px solid #fff;
             border-radius: 10px;
-            background-color: #333;
+            background-color: #000;
             display: none; /* Hidden initially */
         }
 
@@ -283,15 +283,18 @@ permalink: /snake/
                 snake.unshift(head);
 
                 // Draw Game
-                ctx.fillStyle = "#333";
+                ctx.fillStyle = "#000";
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-                ctx.fillStyle = "#ffffff";
-                ctx.fillRect(food.x * BLOCK_SIZE, food.y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+                // Draw Food as Blue Ornament
+                ctx.fillStyle = "#0000ff";
+                ctx.beginPath();
+                ctx.arc(food.x * BLOCK_SIZE + BLOCK_SIZE / 2, food.y * BLOCK_SIZE + BLOCK_SIZE / 2, BLOCK_SIZE / 2, 0, 2 * Math.PI);
+                ctx.fill();
 
                 snake.forEach((segment, index) => {
-                    const colors = ["#ff0000", "#ffffff", "#00ff00"];
-                    ctx.fillStyle = colors[index % 3];
+                    const colors = ["#ff0000", "#00ff00"];
+                    ctx.fillStyle = colors[index % 2];
                     ctx.fillRect(segment.x * BLOCK_SIZE, segment.y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
                 });
             };
@@ -332,5 +335,3 @@ permalink: /snake/
     </script>
 </body>
 </html>
-
-
